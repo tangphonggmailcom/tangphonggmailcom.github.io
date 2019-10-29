@@ -67,5 +67,10 @@ ko.applyBindings(komodel);
 <body>
   <h1>Hello PING World </h1>
   <p>My name is Phong. I'm hosted with GitHub Pages.</p>
+  
+  <ul data-bind="foreach:servers">
+    <li> <a href="#" data-bind="text:name,attr:{href: 'http://'+name}">tester</a> <span data-bind="text:status,css:status"></span>
+    </li>
+  </ul>
 </body>
 </html>
