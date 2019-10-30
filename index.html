@@ -10,22 +10,22 @@
   <script>
     var p = new Ping();
 
-    p.ping("https://meraki.cisco.com/", function(err, data) {
+    p.ping("https://hn.masanconnect.com/", function(err, data) {
       // Also display error if err is returned.
       if (err) {
         console.log("error loading resource")
         data = data + " " + err;
       }
-      document.getElementById("ping-meraki-web").innerHTML = data;
+      document.getElementById("ping-gw-hn").innerHTML = data;
     });
 
-      p.ping("https://www.pulsesecure.net/", function(err, data) {
+    p.ping("https://hcm.masanconnect.com/", function(err, data) {
       // Also display error if err is returned.
       if (err) {
         console.log("error loading resource")
         data = data + " " + err;
       }
-      document.getElementById("ping-pulsesecure-web").innerHTML = data;
+      document.getElementById("ping-gw-hcm").innerHTML = data;
     });
 
   </script>
@@ -35,8 +35,8 @@
   <p>My name is Phong. I'm hosted with GitHub Pages.</p>
   
   <ul>
-    <li><a href="https://meraki.cisco.com/">MERAKI Web :: </a><span id="ping-meraki-web"></span></li>
-    <li> <a href="https://www.pulsesecure.net/">PULSESECURE Web :: </a><span id="ping-pulsesecure-web"></span></li>
+    <li><a href="https://hn.masanconnect.com/">GW Hà Nội :: </a><span id="ping-gw-hn"></span></li>
+    <li> <a href="https://hcm.masanconnect.com/">GW HCM :: </a><span id="ping-gw-hn"></span></li>
   </ul>
   
 </body>
