@@ -19,6 +19,15 @@
       document.getElementById("ping-hpid-web").innerHTML = data;
     });
 
+      p.ping("https://m1.masandistribution.vn/econsumersector_enu/start.swe", function(err, data) {
+      // Also display error if err is returned.
+      if (err) {
+        console.log("error loading resource")
+        data = data + " " + err;
+      }
+      document.getElementById("ping-masan-m1").innerHTML = data;
+    });
+
   </script>
 </head>
 <body>
@@ -26,8 +35,9 @@
   <p>My name is Phong. I'm hosted with GitHub Pages.</p>
   
   <ul>
-    <li><a href="https://www.hpid.vn">Web HPID</a> <span id="ping-hpid-web"></span></li>
-</ul>
+    <li><a href="https://www.hpid.vn">HPID Web</a><span id="ping-hpid-web"></span></li>
+    <li> <a href="https://m1.masandistribution.vn/econsumersector_enu/start.swe">MASAN m1</a><span id="ping-masan-m1"></span></li>
+  </ul>
   
 </body>
 </html>
