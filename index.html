@@ -2,75 +2,68 @@
 <html>
 <head>
   <style>
+    ul span {
+    color: green;
+}
   </style>
   <script>
-function ping(ip, callback) {
+    var p = new Ping();
+ 
 
-    if (!this.inUse) {
-        this.status = 'unchecked';
-        this.inUse = true;
-        this.callback = callback;
-        this.ip = ip;
-        var _that = this;
-        this.img = new Image();
-        this.img.onload = function () {
-            _that.inUse = false;
-            _that.callback('responded');
+p.ping("http://google.com", function(err, data) {
+  // Also display error if err is returned.
+  if (err) {
+    console.log("error loading resource")
+    data = data + " " + err;
+  }
+  document.getElementById("ping-google").innerHTML = data;
+});
 
-        };
-        this.img.onerror = function (e) {
-            if (_that.inUse) {
-                _that.inUse = false;
-                _that.callback('responded', e);
-            }
+p.ping("http://guildbit.com", function(err, data) {
+  if (err) {
+    console.log("error loading resource")
+    data = data + " " + err;
+  }
+  document.getElementById("ping-guildbit").innerHTML = data;
+});
 
-        };
-        this.start = new Date().getTime();
-        this.img.src = "http://" + ip;
-        this.timer = setTimeout(function () {
-            if (_that.inUse) {
-                _that.inUse = false;
-                _that.callback('timeout');
-            }
-        }, 1500);
-    }
-}
-var PingModel = function (servers) {
-    var self = this;
-    var myServers = [];
-    ko.utils.arrayForEach(servers, function (location) {
-        myServers.push({
-            name: location,
-            status: ko.observable('unchecked')
-        });
-    });
-    self.servers = ko.observableArray(myServers);
-    ko.utils.arrayForEach(self.servers(), function (s) {
-        s.status('checking');
-        new ping(s.name, function (status, e) {
-            s.status(status);
-        });
-    });
-};
-var komodel = new PingModel(['localhost',
-    'ws-bdimperio8',
-    'ws-bdimperio8.payformance.net',
-    'ws-bdimperio8.payformance.com',
-    'ws-bdimperio8.payspan.com',
-    'ws-bdimperio8/favicon.ico',
-    '127.0.0.1', 
-    'unknown'
-    ]);
-ko.applyBindings(komodel);
+p.ping("http://sf.guildbit.com", function(err, data) {
+  if (err) {
+    console.log("error loading resource")
+    data = data + " " + err;
+  }
+  document.getElementById("ping-guildbit-sf").innerHTML = data;
+});
+
+p.ping("http://ny.guildbit.com", function(err, data) {
+  if (err) {
+    console.log("error loading resource")
+    data = data + " " + err;
+  }
+  document.getElementById("ping-guildbit-ny").innerHTML = data;
+});
+
+p.ping("http://am.guildbit.com", function(err, data) {
+  if (err) {
+    console.log("error loading resource")
+    data = data + " " + err;
+  }
+  document.getElementById("ping-guildbit-am").innerHTML = data;
+});
+
   </script>
 </head>
 <body>
   <h1>Hello PING World </h1>
   <p>My name is Phong. I'm hosted with GitHub Pages.</p>
   
-  <ul data-bind="foreach:servers">
-    <li> <a href="#" data-bind="text:name,attr:{href: 'http://'+name}">tester</a> <span data-bind="text:status,css:status"></span>
-    </li>
-  </ul>
+  <ul>
+    <li>google.com <span id="ping-google"></span></li>
+    <li>guildbit.com <span id="ping-guildbit"></span></li>
+    <li>sf.guildbit.com (SFO) <span id="ping-guildbit-sf"></span></li>
+    <li>ny.guildbit.com (NYC) <span id="ping-guildbit-ny"></span></li>
+    <li>am.guildbit.com (AMS) <span id="ping-guildbit-am"></span></li>
+</ul>
+  
 </body>
 </html>
