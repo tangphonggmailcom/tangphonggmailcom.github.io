@@ -19,38 +19,6 @@
       document.getElementById("ping-hpid-web").innerHTML = data;
     });
 
-p.ping("http://guildbit.com", function(err, data) {
-  if (err) {
-    console.log("error loading resource")
-    data = data + " " + err;
-  }
-  document.getElementById("ping-guildbit").innerHTML = data;
-});
-
-p.ping("http://sf.guildbit.com", function(err, data) {
-  if (err) {
-    console.log("error loading resource")
-    data = data + " " + err;
-  }
-  document.getElementById("ping-guildbit-sf").innerHTML = data;
-});
-
-p.ping("http://ny.guildbit.com", function(err, data) {
-  if (err) {
-    console.log("error loading resource")
-    data = data + " " + err;
-  }
-  document.getElementById("ping-guildbit-ny").innerHTML = data;
-});
-
-p.ping("http://am.guildbit.com", function(err, data) {
-  if (err) {
-    console.log("error loading resource")
-    data = data + " " + err;
-  }
-  document.getElementById("ping-guildbit-am").innerHTML = data;
-});
-
   </script>
 </head>
 <body>
@@ -58,11 +26,7 @@ p.ping("http://am.guildbit.com", function(err, data) {
   <p>My name is Phong. I'm hosted with GitHub Pages.</p>
   
   <ul>
-    <li>www.hpid.vn <span id="ping-hpid-web"></span></li>
-    <li>guildbit.com <span id="ping-guildbit"></span></li>
-    <li>sf.guildbit.com (SFO) <span id="ping-guildbit-sf"></span></li>
-    <li>ny.guildbit.com (NYC) <span id="ping-guildbit-ny"></span></li>
-    <li>am.guildbit.com (AMS) <span id="ping-guildbit-am"></span></li>
+    <li><a href="https://www.hpid.vn">Web HPID</a> <span id="ping-hpid-web"></span></li>
 </ul>
   
 </body>
