@@ -7,46 +7,9 @@
     }
   </style>
 <script>
-  function down_hn(){
-    document.getElementById("gw_hn").style.visibility = "hidden";
-  }
-  
-function check_available(ip){
-    var el=document.getElementById("check_pic");
-    el.src="https://"+ip+"/si_vi/images/microsoft.jpg?now="+Math.random();    
-}
-
-function check_success(url){
-  alert("redirect now :) - url:"+url);
-}
-  
-function check_down(){
-  document.getElementById("check_dn").style.visibility = "hidden";
-}
+  function down_hn(){document.getElementById("gw_hn").style.visibility = "hidden";}
+  function down_hcm(){document.getElementById("gw_hcm").style.visibility = "hidden";}
 </script>  
-  <script src="https://cdn.jsdelivr.net/gh/alfg/ping.js@0.2.2/dist/ping.min.js" type="text/javascript"></script>
-  <script>
-    var p = new Ping();
-
-    p.ping("https://hn.masanconnect.com/", function(err, data) {
-      // Also display error if err is returned.
-      if (err) {
-        console.log("error loading resource")
-        data = data + " " + err;
-      }
-      document.getElementById("ping-gw-hn").innerHTML = data;
-    });
-
-    p.ping("https://hcm.masanconnect.com/", function(err, data) {
-      // Also display error if err is returned.
-      if (err) {
-        console.log("error loading resource")
-        data = data + " " + err;
-      }
-      document.getElementById("ping-gw-hcm").innerHTML = data;
-    });
-
-  </script>
 </head>
 <body>
   <h1>Hello PING World </h1>
@@ -57,8 +20,9 @@ function check_down(){
 	    <a href="https://hn.masanconnect.com/">GW Hà Nội </a>
 	    <img style="visibility:hidden" src="https://hn.masanconnect.com/dana-na/auth/url_default/welcome.cgi?p=pslogo" onerror="down_hn()"> 
     </li>
-    <li> 
+    <li id=gw_hn> 
 	    <a href="https://hcm.masanconnect.com/">GW HCM </a>
+	    <img style="visibility:hidden" src="https://hcm.masanconnect.com/dana-na/auth/url_default/welcome.cgi?p=pslogo" onerror="down_hn()"> 
     </li>
   </ul>
   
