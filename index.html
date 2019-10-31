@@ -7,6 +7,10 @@
     }
   </style>
 <script>
+  function down_hn(){
+    document.getElementById("gw_hn").style.visibility = "hidden";
+  }
+  
 function check_available(ip){
     var el=document.getElementById("check_pic");
     el.src="https://"+ip+"/si_vi/images/microsoft.jpg?now="+Math.random();    
@@ -49,8 +53,13 @@ function check_down(){
   <p>My name is Phong. I'm hosted with GitHub Pages.</p>
   
   <ul>
-    <li><a href="https://hn.masanconnect.com/">GW Hà Nội :: </a><span id="ping-gw-hn"></span></li>
-    <li> <a href="https://hcm.masanconnect.com/">GW HCM :: </a><span id="ping-gw-hcm"></span></li>
+    <li id=gw_hn>
+	    <a href="https://hn.masanconnect.com/">GW Hà Nội </a>
+	    <img style="visibility:visible" src="https://hcm.masanconnect.com/dana-na/auth/url_default/welcome.cgi?p=pslogo" onerror="down_hn()"> 
+    </li>
+    <li> 
+	    <a href="https://hcm.masanconnect.com/">GW HCM </a>
+    </li>
   </ul>
   
   <img style="visibility:visible" id='check_dn' src="https://hcm.masanconnect.com/dana-na/auth/url_default/welcome.cgi?p=pslogo" onerror="check_down()"> 
